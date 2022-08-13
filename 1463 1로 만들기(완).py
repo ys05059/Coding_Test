@@ -46,16 +46,19 @@ def find_num(num):
                 temp = find_num(num-1)
             arr[num] = temp + 1
             return arr[num]
-    
 answer = find_num(n)
 print(answer)'''
 
-'''l={int(input())};n=0
+'''
+l={int(input())}
+n=0
 while 1 not in l:
-	t=set();n+=1
+	t=set()
+    n+=1
 	for i in l:
 		if i%3==0:t.add(i//3)
 		if i%2==0:t.add(i//2)
 		t.add(i-1)
 	l=t
-print(n)'''
+print(n)
+'''
