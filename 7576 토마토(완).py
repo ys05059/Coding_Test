@@ -11,11 +11,10 @@ def bfs(tomato):
     while stack:
         v = stack.popleft()
         for x, y in [(v[0]+1,v[1]),(v[0],v[1]+1),(v[0]-1,v[1]),(v[0],v[1]-1)]:
-            if 0<= x < M and 0 <=y < N :
-                if graph[y][x] == 0:
-                    if visited[y][x] == 0 or (0 < visited[y][x]and visited[y][x] > visited[v[1]][v[0]]+1):
-                        stack.append((x,y))
-                        visited[y][x] = visited[v[1]][v[0]] + 1
+            if 0<= x < M and 0 <=y < N and graph[y][x] == 0:
+                if visited[y][x] == 0 or (0 < visited[y][x]and visited[y][x] > visited[v[1]][v[0]]+1):
+                    stack.append((x,y))
+                    visited[y][x] = visited[v[1]][v[0]] + 1
             
 M,N = map(int,input().split())
 graph = []
@@ -30,10 +29,6 @@ for j in range(N):
             visited[j][i] = -1
 
 bfs(tomato)
-
-#확인용
-#for j in range(N):
-#   print (visited[j])
 
 result = 0
 for j in range(N):
